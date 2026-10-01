@@ -27,6 +27,8 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 const books = [
   { id: 'hammer', title: '开心锤锤', category: '爆笑故事', price: 28, accent: '#ff7043', Icon: Laugh },
   { id: 'paw', title: '汪汪队', category: '勇敢冒险', price: 32, accent: '#3988ff', Icon: PawPrint },
@@ -138,7 +140,7 @@ export default function Home() {
   if (!isOpen) {
     return (
       <main className="opening-screen">
-        <img className="scene-image" src="/assets/library-opening.png" alt="大树下有一扇很大的开心图书馆木门，奶龙和小七在门口欢迎小店长" />
+        <img className="scene-image" src={`${assetBase}/assets/library-opening.png`} alt="大树下有一扇很大的开心图书馆木门，奶龙和小七在门口欢迎小店长" />
         <div className="opening-shade" />
         <div className="opening-content">
           <div className="story-chip"><Sparkles aria-hidden="true" />奶龙与小七的故事世界</div>
@@ -157,7 +159,7 @@ export default function Home() {
 
   return (
     <main className="library-screen">
-      <img className="scene-image" src="/assets/library-inside.png" alt="阳光照进大树里的开心图书馆，奶龙在挑书，小七站在收银台" />
+      <img className="scene-image" src={`${assetBase}/assets/library-inside.png`} alt="阳光照进大树里的开心图书馆，奶龙在挑书，小七站在收银台" />
       <div className="library-shade" />
 
       <header className="library-header">
