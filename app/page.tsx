@@ -154,13 +154,18 @@ export default function Home() {
         <div className="opening-shade" />
         <div className="opening-content">
           <div className="story-chip"><Sparkles aria-hidden="true" />奶龙与小七的故事世界</div>
-          <div className="giant-blue-door">
-            <h1>开心图书馆</h1>
-            <div className="door-story">《奶龙和小七大战暴暴龙》</div>
-            <div className="door-panels" aria-hidden="true"><span /><span /></div>
-            <Button size="lg" className="start-button" onClick={() => setIsOpen(true)}>
-              <Store aria-hidden="true" />推开蓝色大门<ArrowRight aria-hidden="true" />
-            </Button>
+          <div className="palace-entrance">
+            <div className="palace-crown" aria-hidden="true">✦　★　✦</div>
+            <div className="palace-column" aria-hidden="true" />
+            <div className="giant-blue-door">
+              <h1>开心图书馆</h1>
+              <div className="door-story"><span>奶龙</span><span>大战暴暴龙</span></div>
+              <div className="door-panels" aria-hidden="true"><span /><span /></div>
+              <Button size="lg" className="start-button" onClick={() => setIsOpen(true)}>
+                <Store aria-hidden="true" />推开王宫大门<ArrowRight aria-hidden="true" />
+              </Button>
+            </div>
+            <div className="palace-column" aria-hidden="true" />
           </div>
           <p>门后面藏着好多好多书，快来看看！</p>
           <div className="opening-steps" aria-label="今天的店长任务">
@@ -188,35 +193,44 @@ export default function Home() {
       </header>
 
       <section className="workbench" aria-label="开心图书馆店长工作台">
-        <section className="grand-library" aria-label="高高的图书架">
-          <div className="grand-library-heading"><span>📚</span><div><strong>高高的故事书架</strong><small>从全国到世界，从海边到地球，还有星星和时光！</small></div></div>
-          <div className="tower-shelves">
-            {shelves.map((shelf) => (
-              <div className="tower-shelf" key={shelf}>
-                <strong className="shelf-sign">{shelf}</strong>
-                <div className="shelf-books">
-                  {books.filter((book) => book.category === shelf).map((book) => (
-                    <button key={book.id} type="button" className={`shelf-spine ${selected.includes(book.id) ? 'is-selected' : ''}`} style={{ '--book-accent': book.accent } as CSSProperties} onClick={() => toggleBook(book.id)} aria-label={`${selected.includes(book.id) ? '放回' : '挑选'}《${book.title}》`} aria-pressed={selected.includes(book.id)}>{book.title}</button>
-                  ))}
+        <section className="grand-library" aria-label="立体图书馆和高高的图书架">
+          <div className="grand-library-heading"><span>🏛️</span><div><strong>走进立体图书馆</strong><small>高高的书架往里面延伸，奶龙在这里找书！</small></div></div>
+          <div className="library-room">
+            <div className="room-ceiling" aria-hidden="true" />
+            <div className="room-back" aria-hidden="true"><span>✨ 世界的故事都在这里 ✨</span></div>
+            <div className="tower-shelves">
+              {shelves.map((shelf) => (
+                <div className="tower-shelf" key={shelf}>
+                  <strong className="shelf-sign">{shelf}</strong>
+                  <div className="shelf-books">
+                    {books.filter((book) => book.category === shelf).map((book) => (
+                      <button key={book.id} type="button" className={`shelf-spine ${selected.includes(book.id) ? 'is-selected' : ''}`} style={{ '--book-accent': book.accent } as CSSProperties} onClick={() => toggleBook(book.id)} aria-label={`${selected.includes(book.id) ? '放回' : '挑选'}《${book.title}》`} aria-pressed={selected.includes(book.id)}>{book.title}</button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="room-floor" aria-hidden="true" />
           </div>
           <p>点一点击书脊，奶龙就帮你把书抱过来；下面也可以选书哦！</p>
         </section>
+        <div className="helper-roles" aria-label="图书馆分工">
+          <div><span aria-hidden="true">📚</span><strong>奶龙管书</strong><small>找书、抱书、放书架</small></div>
+          <div><span aria-hidden="true">💰</span><strong>小七管钱</strong><small>收银、算钱、模拟结账</small></div>
+        </div>
         <div className="mission-card">
           <div className="mission-avatar" aria-hidden="true">🙂</div>
           <div>
             <span className="eyebrow">第一位客人的订单</span>
             <h2>“我想找一本读了会开心的书！”</h2>
-            <p>奶龙负责找书，小七负责收银。最后由你请小天送出去。</p>
+            <p>奶龙管书：找书、放书架。小七管钱：算钱、收银。最后请小天送出去。</p>
           </div>
         </div>
 
         <div className="shop-layout">
           <section className="bookshelf-panel">
             <div className="panel-heading">
-              <div><span className="eyebrow">树洞书架</span><h2>小店长，请挑书</h2></div>
+              <div><span className="eyebrow">奶龙的书架</span><h2>小店长，请挑书</h2></div>
               <span className="selection-count">已选 {selected.length} 本</span>
             </div>
 
