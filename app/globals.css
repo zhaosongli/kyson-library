@@ -60,7 +60,15 @@ button { font: inherit; }
 .scene-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .opening-screen, .library-screen { position: relative; min-height: 100svh; overflow: hidden; }
 .opening-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(42 112 164 / 8%), rgb(17 54 24 / 24%)); }
-.opening-content { position: relative; z-index: 1; display: flex; min-height: 100svh; align-items: center; flex-direction: column; padding: clamp(3rem, 8vh, 6rem) 1.25rem 2rem; text-align: center; }
+.opening-content { position: relative; z-index: 1; display: flex; min-height: 100svh; align-items: center; flex-direction: column; justify-content: center; padding: 1.5rem 1.25rem; text-align: center; }
+.giant-blue-door { position: relative; display: flex; align-items: center; flex-direction: column; width: min(680px, 100%); min-height: clamp(390px, 70svh, 720px); margin: 1.1rem auto .5rem; overflow: hidden; border: 12px solid #114585; border-bottom-width: 18px; border-radius: 47% 47% 1.5rem 1.5rem / 19% 19% 1.5rem 1.5rem; background: linear-gradient(115deg, #348cda 0%, #1465b2 48%, #074783 100%); box-shadow: inset 0 0 0 6px #9bdcff, inset 0 20px 35px rgb(255 255 255 / 18%), 0 15px 0 #092e5d, 0 28px 46px rgb(4 21 44 / 45%); padding: clamp(3rem, 9vh, 5.5rem) 1rem 1.8rem; }
+.giant-blue-door::before { position: absolute; inset: 1rem; border: 3px solid rgb(183 225 255 / 55%); border-radius: 45% 45% 1rem 1rem / 16% 16% 1rem 1rem; content: ''; pointer-events: none; }
+.door-story { position: relative; z-index: 1; max-width: 92%; border: 2px solid #a6d9ff; border-radius: .9rem; background: #063b76; box-shadow: 0 5px 0 #052c57; color: #fff3a6; font-size: clamp(.85rem, 3.7vw, 1.35rem); font-weight: 950; line-height: 1.35; padding: .55rem .7rem; }
+.door-panels { display: flex; flex: 1; align-items: stretch; gap: .6rem; width: 88%; min-height: 130px; margin: 1.3rem 0 .8rem; }
+.door-panels span { flex: 1; border: 5px solid #86c5f2; border-radius: 1rem; background: linear-gradient(135deg, rgb(255 255 255 / 17%), rgb(0 27 83 / 18%)); box-shadow: inset 0 0 0 7px rgb(0 44 108 / 30%); }
+.door-panels span:first-child::after, .door-panels span:last-child::after { display: block; width: 15px; height: 15px; border-radius: 50%; background: #ffe792; box-shadow: 0 0 0 3px #a66a21; content: ''; margin: 45% 12px 0 auto; }
+.door-panels span:last-child::after { margin: 45% auto 0 12px; }
+.giant-blue-door .start-button { position: relative; z-index: 1; }
 .story-chip, .eyebrow { font-size: .78rem; font-weight: 800; letter-spacing: .08em; }
 .story-chip { display: inline-flex; align-items: center; gap: .5rem; border: 2px solid rgb(255 255 255 / 75%); border-radius: 999px; background: rgb(255 255 255 / 86%); box-shadow: 0 8px 24px rgb(48 63 18 / 14%); color: #51600a; padding: .55rem .9rem; }
 .story-chip svg { width: 1rem; }
@@ -86,6 +94,19 @@ button { font: inherit; }
 .header-status span { gap: .35rem; border-radius: 999px; background: white; color: #4d4022; font-size: .82rem; font-weight: 800; padding: .48rem .75rem; }
 .header-status svg { width: 1rem; color: #8c6a12; }
 .workbench { position: relative; z-index: 2; width: min(1180px, calc(100% - 2rem)); margin: 1rem auto 2.5rem; }
+.grand-library { margin-bottom: 1rem; border: 5px solid #d6a45f; border-radius: 2rem; background: linear-gradient(150deg, #fff1d1, #f6d9a3); box-shadow: 0 18px 40px rgb(35 23 8 / 35%); padding: 1rem; }
+.grand-library-heading { display: flex; align-items: center; gap: .75rem; margin: .2rem .2rem 1rem; }
+.grand-library-heading > span { font-size: 2.4rem; }
+.grand-library-heading strong, .grand-library-heading small { display: block; }
+.grand-library-heading strong { color: #583315; font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 950; }
+.grand-library-heading small { color: #6e4a25; font-size: .85rem; font-weight: 700; }
+.tower-shelves { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .65rem; }
+.tower-shelf { display: flex; min-width: 0; min-height: 410px; flex-direction: column; border: 8px solid #925222; border-radius: 1rem .9rem .5rem .5rem; background: repeating-linear-gradient(180deg, #ad7341 0 5px, #733e1d 5px 10px, #b47745 10px 75px); box-shadow: inset 0 0 20px rgb(59 29 9 / 45%), 0 8px 0 #5d3218; padding: .55rem .35rem .2rem; }
+.shelf-sign { align-self: center; border-radius: .7rem; background: #fff0b2; box-shadow: 0 3px 0 #804923; color: #623810; font-size: .82rem; padding: .35rem .5rem; text-align: center; }
+.shelf-books { display: flex; flex: 1; align-items: flex-end; justify-content: center; gap: .2rem; min-width: 0; flex-wrap: wrap; align-content: flex-end; padding: 1rem .1rem .3rem; }
+.shelf-spine { display: flex; align-items: center; justify-content: center; width: clamp(28px, 3vw, 45px); height: clamp(155px, 19vw, 240px); overflow: hidden; border: 2px solid rgb(255 255 255 / 58%); border-radius: .3rem .4rem .25rem .25rem; background: linear-gradient(90deg, rgb(0 0 0 / 25%), transparent 22%, rgb(255 255 255 / 24%) 82%), var(--book-accent); box-shadow: 3px 4px 0 rgb(63 34 15 / 40%); color: white; cursor: pointer; font-size: .82rem; font-weight: 900; line-height: 1.1; padding: .3rem .1rem; text-shadow: 0 1px 2px rgb(0 0 0 / 60%); writing-mode: vertical-rl; }
+.shelf-spine:hover, .shelf-spine:focus-visible, .shelf-spine.is-selected { transform: translateY(-12px); outline: 3px solid #ffe17c; }
+.grand-library > p { margin: 1rem 0 .2rem; color: #674321; font-size: .85rem; font-weight: 800; text-align: center; }
 .mission-card { display: flex; align-items: center; gap: .85rem; width: min(700px, 100%); border: 3px solid rgb(255 255 255 / 90%); border-radius: 1.5rem; background: linear-gradient(135deg, rgb(255 250 205 / 96%), rgb(255 255 255 / 94%)); box-shadow: 0 15px 38px rgb(54 41 9 / 20%); padding: .9rem 1rem; }
 .mission-avatar { display: grid; width: 3.6rem; height: 3.6rem; flex: 0 0 auto; place-items: center; border: 3px solid #ffd74b; border-radius: 50%; background: #bfe7ff; font-size: 1.9rem; }
 .eyebrow { display: block; color: #88701d; text-transform: uppercase; }
@@ -157,9 +178,15 @@ button { font: inherit; }
 }
 
 @media (max-width: 680px) {
-  .opening-content { justify-content: center; padding-top: 2rem; }
-  .opening-content h1 { font-size: clamp(3rem, 16vw, 4.5rem); -webkit-text-stroke-width: 2px; }
-  .opening-steps { margin-top: 1.5rem; font-size: .78rem; }
+  .opening-content { justify-content: center; padding: 1rem .6rem 1.5rem; }
+  .giant-blue-door { min-height: min(62svh, 530px); border-width: 8px; padding: 2.7rem .5rem 1rem; }
+  .opening-content h1 { font-size: clamp(2.4rem, 12vw, 4.5rem); -webkit-text-stroke-width: 2px; }
+  .door-panels { min-height: 100px; margin: .9rem 0 .65rem; }
+  .giant-blue-door .start-button { min-height: 3.2rem; font-size: 1rem; padding: .5rem .75rem; }
+  .tower-shelves { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tower-shelf { min-height: 260px; }
+  .shelf-spine { width: 29px; height: 170px; }
+  .opening-steps { margin-top: .7rem; font-size: .78rem; }
   .library-header { align-items: flex-start; flex-direction: column; }
   .header-status { width: 100%; }
   .header-status span { flex: 1; justify-content: center; }
